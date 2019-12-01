@@ -1,11 +1,23 @@
 import React, { Component } from 'react'
 
 export default class extends Component {
-  static getInitialProps ({ query: { id } }) {
-    return { postId: id }
+  static getInitialProps({ req }) {
+    if (req) {
+      //require('../utils/email')
+      console.log('LOGGING FROM SERVER SIDE')
+      return { postId: req.query.id }
+    }
+    /*
+      // if this page is linked to via a next/link
+      // then this'll work
+      console.log('LOGGING FROM CLIENT SIDE')
+      return {
+        postId: 2 // client side computed
+      }
+    */
   }
 
-  render () {
+  render() {
     return (
       <div>
         <h1>My blog post #{this.props.postId}</h1>

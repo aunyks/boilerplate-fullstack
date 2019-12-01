@@ -6,19 +6,13 @@ const Index = () => (
   <MainPage>
     <ul>
       <li>
-        <Link href='/b' as='/a'>
-          <a>a</a>
-        </Link>
+        <a href="/a">a</a>
       </li>
       <li>
-        <Link href='/a' as='/b'>
-          <a>b</a>
-        </Link>
+        <a href="/b">b</a>
       </li>
       <li>
-        <Link href={{ pathname: '/posts', query: { id: '2' } }} as='/posts/2'>
-          <a>post #2</a>
-        </Link>
+        <a href="/posts?id=2">post #2</a>
       </li>
     </ul>
   </MainPage>
