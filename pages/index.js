@@ -1,6 +1,5 @@
 import MainPage from '../layouts/MainPage'
 import Link from 'next/link'
-import fetch from 'isomorphic-unfetch'
 
 const Index = () => (
   <MainPage>

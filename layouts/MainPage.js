@@ -1,8 +1,8 @@
-import Header from '../components/Header'
+import Head from '../components/Head'
 
 export default ({ children }) => (
   <React.Fragment>
-    <Header />
+    <Head />
     {children}
   </React.Fragment>
 )

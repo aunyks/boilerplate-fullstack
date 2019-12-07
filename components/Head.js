@@ -20,8 +20,8 @@ export default () => {
     <React.Fragment>
       <Head>
         <title>Here's the title!</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta charSet="utf-8" />
+        <meta key="viewport" name="viewport" content="width=device-width, initial-scale=1" />
+        <meta key="charset" charSet="utf-8" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="theme-color" content="#000000" />
         <meta name="author" content="" />
@@ -46,7 +46,7 @@ export default () => {
         <link href="" sizes="1242x2208" rel="apple-touch-startup-image" />
         <link href="" sizes="750x1334" rel="apple-touch-startup-image" />
         <link href="" sizes="640x1136" rel="apple-touch-startup-image" />
-        <link rel="stylesheet" href="/css/a.css" />
+        <link key="brand-styles" rel="stylesheet" href="/css/brand.css" />
       </Head>
     </React.Fragment>
   )

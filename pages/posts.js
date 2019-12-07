@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 export default class extends Component {
   static getInitialProps({ req, query, res }) {
     if (req) {
-      //require('../utils/email')
+      //require('../utils/user-email')
       console.log('LOGGING FROM SERVER SIDE')
       if (query.r === '1') {
         res.writeHead(302, { 'Location': 'https://aunyks.com' })
