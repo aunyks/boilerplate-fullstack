@@ -1,11 +1,15 @@
 import React, { Component } from 'react'
 
 export default class extends Component {
-  static getInitialProps({ req }) {
+  static getInitialProps({ req, query, res }) {
     if (req) {
       //require('../utils/email')
       console.log('LOGGING FROM SERVER SIDE')
-      return { postId: req.query.id }
+      if (query.r === '1') {
+        res.writeHead(302, { 'Location': 'https://aunyks.com' })
+        res.end()
+      }
+      return { postId: query.id }
     }
     /*
       // if this page is linked to via a next/link
