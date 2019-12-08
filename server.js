@@ -6,6 +6,8 @@ const dev = process.env.NODE_ENV !== 'production'
 const app = next({ dev })
 const handle = app.getRequestHandler()
 
+let httpServer
+
 app.prepare().then(() => {
   const server = express()
 
@@ -13,8 +15,13 @@ app.prepare().then(() => {
     return handle(req, res)
   })
 
-  server.listen(port, err => {
+  httpServer = server.listen(port, err => {
     if (err) throw err
     console.log(`> Ready on http://localhost:${port}`)
   })
 })
+
+// Use this for testing
+// might have to wait couple seconds 
+// for it to warm up before it's defined
+module.exports = httpServer
