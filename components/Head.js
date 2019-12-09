@@ -1,7 +1,12 @@
 import Head from 'next/head'
 import { useEffect } from 'react'
 
-export default () => {
+export default ({
+  title,
+  description,
+  theme,
+  author
+}) => {
   useEffect(() => {
     const registerServiceWorker = async () => {
       if ('serviceWorker' in navigator) {
@@ -19,22 +24,22 @@ export default () => {
   return (
     <React.Fragment>
       <Head>
-        <title>Here's the title!</title>
+        <title key="title">{title}</title>
         <meta key="viewport" name="viewport" content="width=device-width, initial-scale=1" />
         <meta key="charset" charSet="utf-8" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="theme-color" content="#000000" />
-        <meta name="author" content="" />
-        <meta name="description" content="" />
+        <meta name="theme-color" content={theme} />
+        <meta name="author" content={author} />
+        <meta key="description" name="description" content={description} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@twitter" />
-        <meta name="twitter:title" content="" />
-        <meta name="twitter:image" content="" />
-        <meta property="og:title" content="" />
+        <meta key="twitter-title" name="twitter:title" content={title} />
+        <meta key="twitter-image" name="twitter:image" content="" />
+        <meta key="og-title" property="og:title" content={title} />
         <meta property="og:type" content="article" />
         <meta property="og:url" content="https://" />
         <meta property="og:image" content="" />
-        <meta property="og:description" content="" />
+        <meta key="og-description" property="og:description" content={description} />
         <link rel="icon" type="image/png" href="/favicon.png" />
         <link rel="manifest" href="/manifest.json" />
         <link rel="apple-touch-icon" href="" />

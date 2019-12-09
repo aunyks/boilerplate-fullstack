@@ -68,3 +68,13 @@ A variably sized description of the app.
 APP_SLOGAN
 ```
 Self-explanatory.  
+
+```
+APP_PRIMARY_COLOR
+```
+The app's primary color in the form `abcdef` where each digit is a hex digit.  
+
+```
+APP_AUTHOR
+```
+Who built this? Will be in the copyright footer.  
