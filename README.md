@@ -1,8 +1,8 @@
 # Full Stack Quickstart
 
-`(yarn || npm run) dev` runs for dev.
-`(yarn || npm run) build` builds for prod.
-`(yarn || npm run) start` runs for prod.
+`(yarn || npm run) dev` runs for dev.  
+`(yarn || npm run) build` builds for prod.  
+`(yarn || npm run) start` runs for prod.  
 
 `now`-compatible out of the box!
 
@@ -41,6 +41,12 @@ Your Twilio Auth Token.
 TWILIO_NUMBER
 ```
 The *default* Twilio number from which all messages will be sent.
+
+#### Database Management Settings
+```
+DB_CONNECTION_STRING
+```
+The connection string used to connect to your SQL database.
 
 #### App Metadata Information
 ```
