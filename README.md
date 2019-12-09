@@ -46,7 +46,7 @@ The *default* Twilio number from which all messages will be sent.
 ```
 DB_CONNECTION_STRING
 ```
-The connection string used to connect to your SQL database.
+The connection string for your SQL database.
 
 #### App Metadata Information
 ```
