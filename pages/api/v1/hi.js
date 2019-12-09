@@ -1,4 +1,4 @@
-import secureHeaders from '../../../utils/secure-headers'
+import secureHeaders from '../../../utils/middleware/secure-headers'
 
 const get = (req, res) => {
   res.end('hello get')
