@@ -2,8 +2,9 @@
   "name": "custom-server-express",
   "version": "1.0.0",
   "scripts": {
-    "dev": "node server.js",
-    "build": "next build",
+    "style": "node-sass styles/index.scss public/css/brand.css",
+    "dev": "npm run style && node server.js",
+    "build": "npm run style && next build",
     "start": "cross-env NODE_ENV=production node server.js"
   },
   "dependencies": {
@@ -19,6 +20,7 @@
     "twilio": "^3.38.0"
   },
   "devDependencies": {
-    "cross-env": "^5.2.0"
+    "cross-env": "^5.2.0",
+    "node-sass": "^4.13.0"
   }
 }
