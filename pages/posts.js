@@ -1,15 +1,19 @@
 import React, { Component } from 'react'
 
+const onServerSide = ({ query }, res) => {
+  //require('../utils/user-email')
+  console.log('LOGGING FROM SERVER SIDE')
+  if (query.r === '1') {
+    res.writeHead(302, { 'Location': 'https://aunyks.com' })
+    res.end()
+  }
+  return { postId: query.id }
+}
+
 export default class extends Component {
-  static getInitialProps({ req, query, res }) {
+  static getInitialProps({ req, res }) {
     if (req) {
-      //require('../utils/user-email')
-      console.log('LOGGING FROM SERVER SIDE')
-      if (query.r === '1') {
-        res.writeHead(302, { 'Location': 'https://aunyks.com' })
-        res.end()
-      }
-      return { postId: query.id }
+      return onServerSide(req, res)
     }
     /*
       // if this page is linked to via a next/link
