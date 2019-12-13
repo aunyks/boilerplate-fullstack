@@ -1,3 +1,5 @@
+// Adapted from https://github.com/sashafklein/shape
+
 const parse = func => {
   const declarationLine = func.toString().split('{')[0];
   const name = declarationLine.split('(')[0].split(' ')[1];
