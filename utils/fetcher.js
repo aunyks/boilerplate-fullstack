@@ -16,7 +16,7 @@ const get = async (url, headers = {}) => {
       {
         isOffline: interceptedFromOffline(url, res)
       },
-      res.json()
+      await res.json()
     )
   } catch (e) {
     console.error(e)
@@ -24,7 +24,7 @@ const get = async (url, headers = {}) => {
   }
 }
 
-const delete = async (url, headers = {}) => {
+const dleet = async (url, headers = {}) => {
   try {
     const res = await fetch(url, {
       method: 'DELETE',
@@ -34,7 +34,7 @@ const delete = async (url, headers = {}) => {
       {
         isOffline: interceptedFromOffline(url, res)
       },
-      res.json()
+      await res.json()
     )
   } catch (e) {
     console.error(e)
@@ -56,7 +56,7 @@ const put = async (url, data, headers = {}) => {
       {
         isOffline: interceptedFromOffline(url, res)
       },
-      res.json()
+      await res.json()
     )
   } catch (e) {
     console.error(e)
@@ -78,7 +78,7 @@ const post = async (url, data, headers = {}) => {
       {
         isOffline: interceptedFromOffline(url, res)
       },
-      res.json()
+      await res.json()
     )
   } catch (e) {
     console.error(e)
@@ -90,5 +90,5 @@ export {
   get,
   put,
   post,
-  delete
+  dleet
 }
