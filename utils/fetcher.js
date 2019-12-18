@@ -1,11 +1,4 @@
-const interceptedFromOffline = (requestedUrl, fetchCall) => {
-  const fetchedUrl = fetchCall.url
-  const isOfflineUrl = /^(http|https):\/\/(.+)\.([a-zA-Z]+)(:[0-9]+)?\/offline/.test(fetchedUrl)
-  // Might also have to determine whether
-  // this origin matches ours so we dont 
-  // think some other /offline is ours
-  return requestedUrl !== fetchedUrl && isOfflineUrl
-}
+// Use navigator.onLine to detect online status
 
 const get = async (url, headers = {}) => {
   try {
@@ -13,9 +6,6 @@ const get = async (url, headers = {}) => {
       headers
     })
     return Object.assign({},
-      {
-        isOffline: interceptedFromOffline(url, res)
-      },
       await res.json()
     )
   } catch (e) {
@@ -31,9 +21,6 @@ const dleet = async (url, headers = {}) => {
       headers,
     })
     return Object.assign({},
-      {
-        isOffline: interceptedFromOffline(url, res)
-      },
       await res.json()
     )
   } catch (e) {
@@ -53,9 +40,6 @@ const put = async (url, data, headers = {}) => {
       body: finalHeaders['Content-Type'] === 'application/json' ? JSON.stringify(data) : data
     })
     return Object.assign({},
-      {
-        isOffline: interceptedFromOffline(url, res)
-      },
       await res.json()
     )
   } catch (e) {
@@ -75,9 +59,6 @@ const post = async (url, data, headers = {}) => {
       body: finalHeaders['Content-Type'] === 'application/json' ? JSON.stringify(data) : data
     })
     return Object.assign({},
-      {
-        isOffline: interceptedFromOffline(url, res)
-      },
       await res.json()
     )
   } catch (e) {
