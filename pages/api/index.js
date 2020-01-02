@@ -1,5 +1,5 @@
 const get = (req, res) => {
-  res.end('pick a version pls')
+  res.end(`pick a version pls`)
 }
 
 export default (req, res) => {

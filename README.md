@@ -7,6 +7,13 @@
 `now`-compatible out of the box!
 
 ## Envar Config
+To set these environment variables, create a `.env` and `.env.dev` file. The `.env` will contain production variables, and the `.env.dev` will contain development variables.  
+
+Fill these files using the following form:
+```
+A_VARIABLE=Its value
+ARE_THE_VALUES_STRINGS=yes
+```
 
 #### Dev Settings
 ```
@@ -78,3 +85,12 @@ The app's primary color in the form `abcdef` where each digit is a hex digit.
 APP_AUTHOR
 ```
 Who built this? Will be in the copyright footer.  
+```
+TWITTER_USERNAME
+```
+The Twitter username of the page or app's author.  
+
+```
+APP_URL
+```
+The {http|https}://origin -formatted URL where this app lives.

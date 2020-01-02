@@ -1,9 +1,7 @@
 const emailNotification = async msg => {
   const sendgrid = require('@sendgrid/mail')
-  const {
-    SENDGRID_API_KEY,
-    EMAIL_FROM,
-  } = process.env
+  const SENDGRID_API_KEY = process.env.SENDGRID_API_KEY
+  const EMAIL_FROM = process.env.EMAIL_FROM
   sendgrid.setApiKey(SENDGRID_API_KEY)
   sendgrid.send({
     to: msg.to,
@@ -17,11 +15,9 @@ const emailNotification = async msg => {
 
 const smsNotification = async msg => {
   const twilio = require('twilio')
-  const {
-    TWILIO_ACCT_SID,
-    TWILIO_AUTH_TOKEN,
-    TWILIO_NUMBER
-  } = process.env
+  const TWILIO_ACCT_SID = process.env.TWILIO_ACCT_SID
+  const TWILIO_AUTH_TOKEN = process.env.TWILIO_AUTH_TOKEN
+  const TWILIO_NUMBER = process.env.TWILIO_NUMBER
   const client = new twilio(
     TWILIO_ACCT_SID,
     TWILIO_AUTH_TOKEN

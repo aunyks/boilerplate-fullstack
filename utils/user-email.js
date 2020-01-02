@@ -1,8 +1,6 @@
 const sendgrid = require('@sendgrid/mail')
-const {
-  SENDGRID_API_KEY,
-  EMAIL_FROM
-} = process.env
+const SENDGRID_API_KEY = process.env.SENDGRID_API_KEY
+const EMAIL_FROM = process.env.EMAIL_FROM
 sendgrid.setApiKey(SENDGRID_API_KEY)
 
 // those verification links should never be derived from ANY user input

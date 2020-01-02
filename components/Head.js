@@ -1,12 +1,7 @@
 import Head from 'next/head'
 import { useEffect } from 'react'
 
-export default ({
-  title,
-  description,
-  theme,
-  author
-}) => {
+export default () => {
   useEffect(() => {
     const registerServiceWorker = async () => {
       if ('serviceWorker' in navigator) {
@@ -24,22 +19,22 @@ export default ({
   return (
     <React.Fragment>
       <Head>
-        <title key="title">{title}</title>
+        <title key="title">{process.env.SHORT_APP_NAME} | {process.env.APP_DESCRIPTION}</title>
         <meta key="viewport" name="viewport" content="width=device-width, initial-scale=1" />
         <meta key="charset" charSet="utf-8" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="theme-color" content={theme} />
-        <meta name="author" content={author} />
-        <meta key="description" name="description" content={description} />
+        <meta name="theme-color" content={process.env.APP_PRIMARY_COLOR} />
+        <meta name="author" content={process.env.APP_AUTHOR} />
+        <meta key="description" name="description" content={process.env.APP_DESCRIPTION} />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content="@twitter" />
-        <meta key="twitter-title" name="twitter:title" content={title} />
+        <meta key="twitter-site" name="twitter:site" content={process.env.TWITTER_USERNAME} />
+        <meta key="twitter-title" name="twitter:title" content={process.env.SHORT_APP_NAME} />
         <meta key="twitter-image" name="twitter:image" content="" />
-        <meta key="og-title" property="og:title" content={title} />
+        <meta key="og-title" property="og:title" content={process.env.SHORT_APP_NAME} />
         <meta property="og:type" content="article" />
-        <meta property="og:url" content="https://" />
-        <meta property="og:image" content="" />
-        <meta key="og-description" property="og:description" content={description} />
+        <meta key="og-url" property="og:url" content={process.env.APP_URL} />
+        <meta key="og-image" property="og:image" content="" />
+        <meta key="og-description" property="og:description" content={process.env.APP_DESCRIPTION} />
         <link rel="icon" type="image/png" href="/favicon.png" />
         <link rel="manifest" href="/manifest.json" />
         <link rel="apple-touch-icon" href="" />
