@@ -1,12 +1,66 @@
-body {
+html, body {
+  height: 100vh;
+  width: 100vw;
   background: #fff;
   font: 11px menlo;
   color: #000; }
 
+.navbar {
+  display: flex;
+  padding: 2.5vh 10vw 2.5vh 2vw; }
+
+.navbar-link {
+  margin: 8px 20px; }
+
+#navbar-brand {
+  color: #000;
+  text-decoration: none; }
+
+.navbar-items {
+  display: flex; }
+
+.navbar-items-right {
+  margin-left: auto; }
+
+.navbar-link-toggle {
+  display: none; }
+
+.navbar-svg-line {
+  stroke: #000;
+  stroke-width: 2; }
+
 @media (prefers-color-scheme: dark) {
   /* 
     OS / Browser Dark Mode
-  */ }
+  */
+  html, body {
+    color: #fff;
+    background: #000; }
+  #navbar-brand {
+    color: #fff;
+    text-decoration: none; }
+  .navbar-link > * {
+    color: #fff; }
+  .navbar-svg-line {
+    stroke: #fff;
+    stroke-width: 2; } }
+
+@media only screen and (max-width: 1025px) {
+  .navbar-items,
+  .navbar {
+    flex-direction: column; }
+  .navbar-items {
+    display: none; }
+  .navbar-items-right {
+    margin-left: 0; }
+  .navbar-toggle-show {
+    display: flex; }
+  .navbar-link-toggle {
+    align-self: flex-end;
+    display: initial;
+    cursor: pointer;
+    position: absolute;
+    margin: 8px 0; } }
 
 @media only screen and (max-width: 375px) {
   /*

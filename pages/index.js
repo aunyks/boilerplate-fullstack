@@ -27,13 +27,9 @@ const Index = () => (
 )
 
 Index.getInitialProps = async ({ req }) => {
-  if (req) {
-    return {}
-  } else {
-    return {
-      // props.a
-      a: 'hi'
-    }
+  return {
+    // props.a
+    a: 'hi'
   }
 }
 
