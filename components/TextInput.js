@@ -13,6 +13,7 @@ export default ({
   name,
   required,
   label,
+  type,
   onChange,
   isValid
 }) => {
@@ -74,7 +75,7 @@ export default ({
           onFocus={onFocus}
           onBlur={onBlur}
           className={`${theme || ''}`}
-          type="text"
+          type={type || 'text'}
           value={inputValue}
           onChange={_onChange}
         />

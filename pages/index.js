@@ -2,10 +2,18 @@ import { FormattedMessage } from 'react-intl'
 import Link from 'next/link'
 import MainPage from '../layouts/MainPage'
 import EmailInput from '../components/EmailInput'
+import Select from '../components/Select'
 
 const Index = () => (
   <MainPage>
     <EmailInput label="Email" isValid={val => val.startsWith('hello')} />
+    <Select
+      label="Letter"
+      onChange={val => { }}
+      options={[
+        { value: 'a', title: 'Alpha' },
+        { value: 'b', title: 'Beta' }
+      ]} />
     <ul>
       <li>
         <a href="/a">a</a>

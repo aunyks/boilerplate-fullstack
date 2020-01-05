@@ -1,8 +1,19 @@
+$document-font-size: 11px;
+
 $light-bg-color: #fff;
 $light-font-color: #000;
+$light-primary-color: #5D44F8;
 
 $dark-bg-color: #000;
 $dark-font-color: #fff;
+$dark-primary-color: #5D44F8;
+
+$error-color: #f00;
+
+$input-label-top-margin: 10px;
+$input-label-left-margin: 10px;
+$input-label-focused-top-margin: 5px;
+$input-label-focused-left-margin: 5px;
 
 html, body { 
   height: 100vh;
@@ -48,43 +59,80 @@ html, body {
 
   label {
     position: absolute;
-    margin: 10px 0 0 10px;
+    margin: $input-label-top-margin 0 0 $input-label-left-margin;
     font-size: 1.5em;
     transition: margin 0.25s, font-size 0.25s;
   }
 
   label.focused {
     font-size: 0.9em;
-    margin: 5px 0 0 5px;
+    margin: $input-label-focused-top-margin 0 0 $input-label-focused-left-margin;
   }
 
   input[type=text] {
     height: 2em;
-    padding: 15px 0 0 4px;
+    padding: calc(#{$input-label-top-margin} + 5px) 0 0 calc(#{$input-label-focused-left-margin} - 1px);
     border-style: none;
     border-bottom-style: solid;
     border-bottom-width: 2px;
-    border-bottom-color: black;
+    border-bottom-color: $light-primary-color;
+  }
+
+  input[type=email] {
+    height: 2em;
+    padding: calc(#{$input-label-top-margin} + 5px) 0 0 calc(#{$input-label-focused-left-margin} - 1px);
+    border-style: none;
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
+    border-bottom-color: $light-primary-color;
   }
 
   textarea {
-    padding: 20px 0 0 5px;
+    padding: calc(#{$input-label-top-margin} * 2) 0 0 $input-label-focused-left-margin;
     border-style: none;
     border-bottom-style: solid;
     border-bottom-width: 2px;
-    border-bottom-color: black;
+    border-bottom-color: $light-primary-color;
   }
 }
 
 .text-input.invalid {
-  color: red;
+  color: $error-color;
 
   input[type=text] {
-    border-bottom-color: red;
+    border-bottom-color: $error-color;
+  }
+
+  input[type=email] {
+    border-bottom-color: $error-color;
   }
 
   textarea {
-    border-bottom-color: red;
+    border-bottom-color: $error-color;
+  }
+}
+
+.select-input {
+  position: relative;
+
+  label {
+    position: absolute;
+    font-size: 0.9em;
+    margin: $input-label-focused-top-margin 0 0 $input-label-focused-left-margin;
+  }
+
+  select {
+    min-width: 10ch;
+    -webkit-appearance: none;
+    background: $light-bg-color;
+    border-radius: 0;
+    padding: calc(#{$input-label-top-margin} + 5px) 0 0 $input-label-focused-left-margin;
+    font-size: 1em;
+    height: 3.5em;
+    border-style: none;
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
+    border-bottom-color: $light-primary-color;
   }
 }
 
@@ -109,6 +157,27 @@ html, body {
   .navbar-svg-line {
     stroke: $dark-font-color;
     stroke-width: 2;
+  }
+
+  .text-input {
+    input[type=text] {
+      border-bottom-color: $dark-primary-color;
+    }
+
+    input[type=email] {
+      border-bottom-color: $dark-primary-color;
+    }
+  
+    textarea {
+      border-bottom-color: $dark-primary-color;
+    }
+  }
+
+  .select-input {
+    select {
+      background: $dark-bg-color;
+      border-bottom-color: $dark-primary-color;
+    }
   }
 }
 

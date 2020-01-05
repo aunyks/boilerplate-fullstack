@@ -41,24 +41,52 @@ html, body {
     margin: 5px 0 0 5px; }
   .text-input input[type=text] {
     height: 2em;
-    padding: 15px 0 0 4px;
+    padding: calc(10px + 5px) 0 0 calc(5px - 1px);
     border-style: none;
     border-bottom-style: solid;
     border-bottom-width: 2px;
-    border-bottom-color: black; }
+    border-bottom-color: #5D44F8; }
+  .text-input input[type=email] {
+    height: 2em;
+    padding: calc(10px + 5px) 0 0 calc(5px - 1px);
+    border-style: none;
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
+    border-bottom-color: #5D44F8; }
   .text-input textarea {
-    padding: 20px 0 0 5px;
+    padding: calc(10px * 2) 0 0 5px;
     border-style: none;
     border-bottom-style: solid;
     border-bottom-width: 2px;
-    border-bottom-color: black; }
+    border-bottom-color: #5D44F8; }
 
 .text-input.invalid {
-  color: red; }
+  color: #f00; }
   .text-input.invalid input[type=text] {
-    border-bottom-color: red; }
+    border-bottom-color: #f00; }
+  .text-input.invalid input[type=email] {
+    border-bottom-color: #f00; }
   .text-input.invalid textarea {
-    border-bottom-color: red; }
+    border-bottom-color: #f00; }
+
+.select-input {
+  position: relative; }
+  .select-input label {
+    position: absolute;
+    font-size: 0.9em;
+    margin: 5px 0 0 5px; }
+  .select-input select {
+    min-width: 10ch;
+    -webkit-appearance: none;
+    background: #fff;
+    border-radius: 0;
+    padding: calc(10px + 5px) 0 0 5px;
+    font-size: 1em;
+    height: 3.5em;
+    border-style: none;
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
+    border-bottom-color: #5D44F8; }
 
 @media (prefers-color-scheme: dark) {
   /* 
@@ -74,7 +102,16 @@ html, body {
     color: #fff; }
   .navbar-svg-line {
     stroke: #fff;
-    stroke-width: 2; } }
+    stroke-width: 2; }
+  .text-input input[type=text] {
+    border-bottom-color: #5D44F8; }
+  .text-input input[type=email] {
+    border-bottom-color: #5D44F8; }
+  .text-input textarea {
+    border-bottom-color: #5D44F8; }
+  .select-input select {
+    background: #000;
+    border-bottom-color: #5D44F8; } }
 
 @media only screen and (max-width: 1025px) {
   .navbar-items,
