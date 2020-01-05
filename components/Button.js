@@ -4,7 +4,9 @@ export default ({
   children
 }) => {
   return (
-    <button onClick={onClick} className={`${theme}`}>
+    <button
+      onClick={onClick}
+      className={`${theme || ''}`}>
       {children}
     </button>
   )

@@ -29,6 +29,37 @@ html, body {
   stroke: #000;
   stroke-width: 2; }
 
+.text-input {
+  position: relative; }
+  .text-input label {
+    position: absolute;
+    margin: 10px 0 0 10px;
+    font-size: 1.5em;
+    transition: margin 0.25s, font-size 0.25s; }
+  .text-input label.focused {
+    font-size: 0.9em;
+    margin: 5px 0 0 5px; }
+  .text-input input[type=text] {
+    height: 2em;
+    padding: 15px 0 0 4px;
+    border-style: none;
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
+    border-bottom-color: black; }
+  .text-input textarea {
+    padding: 20px 0 0 5px;
+    border-style: none;
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
+    border-bottom-color: black; }
+
+.text-input.invalid {
+  color: red; }
+  .text-input.invalid input[type=text] {
+    border-bottom-color: red; }
+  .text-input.invalid textarea {
+    border-bottom-color: red; }
+
 @media (prefers-color-scheme: dark) {
   /* 
     OS / Browser Dark Mode

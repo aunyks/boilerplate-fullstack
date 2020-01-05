@@ -1,9 +1,11 @@
-import MainPage from '../layouts/MainPage'
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage } from 'react-intl'
 import Link from 'next/link'
+import MainPage from '../layouts/MainPage'
+import EmailInput from '../components/EmailInput'
 
 const Index = () => (
   <MainPage>
+    <EmailInput label="Email" isValid={val => val.startsWith('hello')} />
     <ul>
       <li>
         <a href="/a">a</a>
