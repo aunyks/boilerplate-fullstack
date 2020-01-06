@@ -39,16 +39,14 @@ html, body {
   .text-input label.focused {
     font-size: 0.9em;
     margin: 5px 0 0 5px; }
-  .text-input input[type=text] {
+  .text-input input[type=text],
+  .text-input input[type=email],
+  .text-input input[type=date],
+  .text-input input[type=password],
+  .text-input input[type=tel],
+  .text-input input[type=time] {
     height: 2em;
-    padding: calc(10px + 5px) 0 0 calc(5px - 1px);
-    border-style: none;
-    border-bottom-style: solid;
-    border-bottom-width: 2px;
-    border-bottom-color: #5D44F8; }
-  .text-input input[type=email] {
-    height: 2em;
-    padding: calc(10px + 5px) 0 0 calc(5px - 1px);
+    padding: calc(10px + 5px) 0 0 5px;
     border-style: none;
     border-bottom-style: solid;
     border-bottom-width: 2px;
@@ -62,9 +60,12 @@ html, body {
 
 .text-input.invalid {
   color: #f00; }
-  .text-input.invalid input[type=text] {
-    border-bottom-color: #f00; }
-  .text-input.invalid input[type=email] {
+  .text-input.invalid input[type=text],
+  .text-input.invalid input[type=email],
+  .text-input.invalid input[type=date],
+  .text-input.invalid input[type=password],
+  .text-input.invalid input[type=tel],
+  .text-input.invalid input[type=time] {
     border-bottom-color: #f00; }
   .text-input.invalid textarea {
     border-bottom-color: #f00; }
@@ -78,6 +79,10 @@ html, body {
   .select-input select {
     min-width: 10ch;
     -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+    appearance: none;
     background: #fff;
     border-radius: 0;
     padding: calc(10px + 5px) 0 0 5px;
@@ -87,6 +92,22 @@ html, body {
     border-bottom-style: solid;
     border-bottom-width: 2px;
     border-bottom-color: #5D44F8; }
+
+button {
+  padding: 7px 10px;
+  border-radius: 5px; }
+  button.primary {
+    padding: 9px 11px;
+    background: #5D44F8;
+    color: white; }
+  button.secondary {
+    border-style: solid;
+    background: #fff;
+    border-width: 2px;
+    border-color: #5D44F8; }
+  button.flat {
+    background: #fff;
+    border-style: none; }
 
 @media (prefers-color-scheme: dark) {
   /* 
@@ -103,9 +124,12 @@ html, body {
   .navbar-svg-line {
     stroke: #fff;
     stroke-width: 2; }
-  .text-input input[type=text] {
-    border-bottom-color: #5D44F8; }
-  .text-input input[type=email] {
+  .text-input input[type=text],
+  .text-input input[type=email],
+  .text-input input[type=date],
+  .text-input input[type=password],
+  .text-input input[type=tel],
+  .text-input input[type=time] {
     border-bottom-color: #5D44F8; }
   .text-input textarea {
     border-bottom-color: #5D44F8; }

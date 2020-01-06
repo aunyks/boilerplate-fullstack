@@ -40,7 +40,7 @@ export default ({
   }
   if (multiline) {
     return (
-      <div className={`text-input ${_isValid(inputValue) ? '' : 'invalid'}`}>
+      <div className={`text-input${_isValid(inputValue) ? ' ' : ' invalid'}`}>
         {label &&
           <label className={`${isFocused ? 'focused' : ''} ${_isValid(inputValue) ? '' : 'invalid'}`} htmlFor={inputName}>
             {label}

@@ -1,4 +1,10 @@
-$document-font-size: 11px;
+@mixin vendor-prefix($name, $value) {
+  @each $vendor in ('-webkit-', '-moz-', '-ms-', '-o-', '') {
+    #{$vendor}#{$name}: #{$value};
+  }
+}
+
+$document-font-size: 1em;
 
 $light-bg-color: #fff;
 $light-font-color: #000;
@@ -69,18 +75,14 @@ html, body {
     margin: $input-label-focused-top-margin 0 0 $input-label-focused-left-margin;
   }
 
-  input[type=text] {
+  input[type=text],
+  input[type=email],
+  input[type=date],
+  input[type=password],
+  input[type=tel],
+  input[type=time] {
     height: 2em;
-    padding: calc(#{$input-label-top-margin} + 5px) 0 0 calc(#{$input-label-focused-left-margin} - 1px);
-    border-style: none;
-    border-bottom-style: solid;
-    border-bottom-width: 2px;
-    border-bottom-color: $light-primary-color;
-  }
-
-  input[type=email] {
-    height: 2em;
-    padding: calc(#{$input-label-top-margin} + 5px) 0 0 calc(#{$input-label-focused-left-margin} - 1px);
+    padding: calc(#{$input-label-top-margin} + 5px) 0 0 $input-label-focused-left-margin;
     border-style: none;
     border-bottom-style: solid;
     border-bottom-width: 2px;
@@ -99,11 +101,12 @@ html, body {
 .text-input.invalid {
   color: $error-color;
 
-  input[type=text] {
-    border-bottom-color: $error-color;
-  }
-
-  input[type=email] {
+  input[type=text],
+  input[type=email],
+  input[type=date],
+  input[type=password],
+  input[type=tel],
+  input[type=time] {
     border-bottom-color: $error-color;
   }
 
@@ -123,7 +126,7 @@ html, body {
 
   select {
     min-width: 10ch;
-    -webkit-appearance: none;
+    @include vendor-prefix('appearance', 'none');
     background: $light-bg-color;
     border-radius: 0;
     padding: calc(#{$input-label-top-margin} + 5px) 0 0 $input-label-focused-left-margin;
@@ -133,6 +136,29 @@ html, body {
     border-bottom-style: solid;
     border-bottom-width: 2px;
     border-bottom-color: $light-primary-color;
+  }
+}
+
+button {
+  padding: 7px 10px;
+  border-radius: 5px;
+
+  &.primary {
+    padding: 9px 11px;
+    background: $light-primary-color;
+    color: white;
+  }
+
+  &.secondary {
+    border-style: solid;
+    background: $light-bg-color;
+    border-width: 2px;
+    border-color: $light-primary-color;
+  }
+
+  &.flat {
+    background: $light-bg-color;
+    border-style: none;
   }
 }
 
@@ -160,11 +186,12 @@ html, body {
   }
 
   .text-input {
-    input[type=text] {
-      border-bottom-color: $dark-primary-color;
-    }
-
-    input[type=email] {
+    input[type=text],
+    input[type=email],
+    input[type=date],
+    input[type=password],
+    input[type=tel],
+    input[type=time] {
       border-bottom-color: $dark-primary-color;
     }
   
