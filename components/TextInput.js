@@ -17,6 +17,7 @@ export default ({
   onChange,
   isValid
 }) => {
+  let inputReference
   const [inputValue, updateInput] = useState('')
   const [isFocused, changeFocus] = useState(false)
   const inputName = name || `text-input-${generateElementId()}`
@@ -38,15 +39,29 @@ export default ({
       return true
     }
   }
+  const labelClicked = () => {
+    console.log('label')
+    if (isFocused) {
+      inputReference.blur()
+      changeFocus(false)
+    } else {
+      inputReference.focus()
+      changeFocus(true)
+    }
+  }
   if (multiline) {
     return (
-      <div className={`text-input${_isValid(inputValue) ? ' ' : ' invalid'}`}>
+      <div
+        className={`text-input${_isValid(inputValue) ? ' ' : ' invalid'}`}>
         {label &&
-          <label className={`${isFocused ? 'focused' : ''} ${_isValid(inputValue) ? '' : 'invalid'}`} htmlFor={inputName}>
+          <label
+            onClick={labelClicked}
+            className={`${isFocused ? 'focused' : ''} ${_isValid(inputValue) ? '' : 'invalid'}`} htmlFor={inputName}>
             {label}
           </label>
         }
         <textarea
+          ref={r => inputReference = r}
           name={inputName}
           required={required}
           className={`${theme || ''}`}
@@ -63,13 +78,15 @@ export default ({
     )
   } else {
     return (
-      <div className={`text-input ${_isValid(inputValue) ? '' : 'invalid'}`}>
+      <div className={`text-input ${_isValid(inputValue) ? '' : 'invalid'}`}
+        onClick={labelClicked}>
         {label &&
           <label className={`${isFocused ? 'focused' : ''} ${_isValid(inputValue) ? '' : 'invalid'}`} htmlFor={inputName}>
             {label}
           </label>
         }
         <input
+          ref={r => inputReference = r}
           required={required}
           name={inputName}
           onFocus={onFocus}

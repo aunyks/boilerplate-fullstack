@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import X from './X'
 
 const Hamburger = ({ showing }) => (
   <svg style={{ display: showing ? 'block' : 'none' }} width="20" height="20">
@@ -8,15 +9,6 @@ const Hamburger = ({ showing }) => (
       x1="0" y1="10" x2="20" y2="10" />
     <line className="navbar-svg-line"
       x1="0" y1="15" x2="20" y2="15" />
-  </svg>
-)
-
-const X = ({ showing }) => (
-  <svg style={{ display: showing ? 'block' : 'none' }} width="20" height="20">
-    <line className="navbar-svg-line"
-      x1="5" y1="5" x2="15" y2="15" />
-    <line className="navbar-svg-line"
-      x1="5" y1="15" x2="15" y2="5" />
   </svg>
 )
 

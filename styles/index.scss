@@ -8,18 +8,20 @@ $document-font-size: 1em;
 
 $light-bg-color: #fff;
 $light-font-color: #000;
+$light-grayed-color: #eee;
 $light-primary-color: #5D44F8;
 
 $dark-bg-color: #000;
 $dark-font-color: #fff;
+$dark-grayed-color: #333;
 $dark-primary-color: #5D44F8;
 
 $error-color: #f00;
 
-$input-label-top-margin: 10px;
-$input-label-left-margin: 10px;
-$input-label-focused-top-margin: 5px;
-$input-label-focused-left-margin: 5px;
+$input-label-top-padding: 10px;
+$input-label-left-padding: 10px;
+$input-label-focused-top-padding: 5px;
+$input-label-focused-left-padding: 5px;
 
 html, body { 
   height: 100vh;
@@ -27,6 +29,20 @@ html, body {
   background: $light-bg-color;
   font: 11px menlo;
   color: $light-font-color
+}
+
+.title {
+  font-weight: 400;
+  margin: 0;
+}
+
+.subtitle {
+  font-weight: 100;
+  margin: 0;
+}
+
+.x {
+  cursor: pointer;
 }
 
 .navbar {
@@ -65,14 +81,14 @@ html, body {
 
   label {
     position: absolute;
-    margin: $input-label-top-margin 0 0 $input-label-left-margin;
+    padding: $input-label-top-padding 0 0 $input-label-left-padding;
     font-size: 1.5em;
-    transition: margin 0.25s, font-size 0.25s;
+    transition: padding 0.25s, font-size 0.25s;
   }
 
   label.focused {
     font-size: 0.9em;
-    margin: $input-label-focused-top-margin 0 0 $input-label-focused-left-margin;
+    padding: $input-label-focused-top-padding 0 0 $input-label-focused-left-padding;
   }
 
   input[type=text],
@@ -81,8 +97,10 @@ html, body {
   input[type=password],
   input[type=tel],
   input[type=time] {
+    color: $light-font-color;
+    background: $light-grayed-color;
     height: 2em;
-    padding: calc(#{$input-label-top-margin} + 5px) 0 0 $input-label-focused-left-margin;
+    padding: calc(#{$input-label-top-padding} + 5px) 0 0 $input-label-focused-left-padding;
     border-style: none;
     border-bottom-style: solid;
     border-bottom-width: 2px;
@@ -90,7 +108,9 @@ html, body {
   }
 
   textarea {
-    padding: calc(#{$input-label-top-margin} * 2) 0 0 $input-label-focused-left-margin;
+    color: $light-font-color;
+    background: $light-grayed-color;
+    padding: calc(#{$input-label-top-padding} * 2) 0 0 $input-label-focused-left-padding;
     border-style: none;
     border-bottom-style: solid;
     border-bottom-width: 2px;
@@ -121,15 +141,16 @@ html, body {
   label {
     position: absolute;
     font-size: 0.9em;
-    margin: $input-label-focused-top-margin 0 0 $input-label-focused-left-margin;
+    padding: $input-label-focused-top-padding 0 0 $input-label-focused-left-padding;
   }
 
   select {
+    color: $light-font-color;
     min-width: 10ch;
     @include vendor-prefix('appearance', 'none');
     background: $light-bg-color;
     border-radius: 0;
-    padding: calc(#{$input-label-top-margin} + 5px) 0 0 $input-label-focused-left-margin;
+    padding: calc(#{$input-label-top-padding} + 5px) 0 0 $input-label-focused-left-padding;
     font-size: 1em;
     height: 3.5em;
     border-style: none;
@@ -146,7 +167,7 @@ button {
   &.primary {
     padding: 9px 11px;
     background: $light-primary-color;
-    color: white;
+    color: $light-font-color;
   }
 
   &.secondary {
@@ -159,6 +180,39 @@ button {
   &.flat {
     background: $light-bg-color;
     border-style: none;
+  }
+}
+
+.modal {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 999;
+  flex-direction: row;
+  justify-content: space-between;
+
+  &.hidden {
+    display: none;
+  }
+
+  .container {
+    position: relative;
+    max-width: 70vw;
+    max-height: 50vh;
+    padding: 35px 40px 30px 30px;
+    margin: auto;
+    background: $light-bg-color;
+    border-radius: 10px;
+  }
+
+  .x {
+    position: absolute;
+    top: 7px;
+    right: 10px;
   }
 }
 
@@ -192,18 +246,51 @@ button {
     input[type=password],
     input[type=tel],
     input[type=time] {
+      color: $dark-font-color;
+      background: $dark-grayed-color;
       border-bottom-color: $dark-primary-color;
     }
   
     textarea {
+      color: $dark-font-color;
+      background: $dark-grayed-color;
       border-bottom-color: $dark-primary-color;
+    }
+
+    &.invalid {
+      color: rgb(255, 110, 110);
     }
   }
 
   .select-input {
     select {
+      color: $dark-font-color;
       background: $dark-bg-color;
       border-bottom-color: $dark-primary-color;
+    }
+  }
+
+  button {
+    color: $dark-font-color;
+
+    &.primary {
+      background: $dark-primary-color;
+      color: $dark-font-color;
+    }
+  
+    &.secondary {
+      background: $dark-bg-color;
+      border-color: $dark-primary-color;
+    }
+  
+    &.flat {
+      background: $dark-bg-color;
+    }
+  }
+
+  .modal {
+    .container {
+      background: $dark-bg-color;
     }
   }
 }
