@@ -40,14 +40,8 @@ export default ({
     }
   }
   const labelClicked = () => {
-    console.log('label')
-    if (isFocused) {
-      inputReference.blur()
-      changeFocus(false)
-    } else {
-      inputReference.focus()
-      changeFocus(true)
-    }
+    inputReference.focus()
+    changeFocus(true)
   }
   if (multiline) {
     return (
@@ -56,7 +50,8 @@ export default ({
         {label &&
           <label
             onClick={labelClicked}
-            className={`${isFocused ? 'focused' : ''} ${_isValid(inputValue) ? '' : 'invalid'}`} htmlFor={inputName}>
+            className={`${isFocused ? 'focused' : ''} ${_isValid(inputValue) ? '' : 'invalid'}`}
+            htmlFor={inputName}>
             {label}
           </label>
         }
@@ -78,10 +73,12 @@ export default ({
     )
   } else {
     return (
-      <div className={`text-input ${_isValid(inputValue) ? '' : 'invalid'}`}
-        onClick={labelClicked}>
+      <div className={`text-input ${_isValid(inputValue) ? '' : 'invalid'}`}>
         {label &&
-          <label className={`${isFocused ? 'focused' : ''} ${_isValid(inputValue) ? '' : 'invalid'}`} htmlFor={inputName}>
+          <label
+            className={`${isFocused ? 'focused' : ''} ${_isValid(inputValue) ? '' : 'invalid'}`}
+            htmlFor={inputName}
+            onClick={labelClicked}>
             {label}
           </label>
         }
