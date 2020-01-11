@@ -6,7 +6,9 @@ export default ({
   onRequestClose
 }) => {
   return (
-    <div className={`modal${hidden ? ' hidden' : ''}`}>
+    <div
+      className={`modal${hidden ? ' hidden' : ''}`}
+      aria-hidden={hidden ? 'true' : 'false'}>
       <div />
       <div className="container">
         <a className="x" aria-hidden="true"
